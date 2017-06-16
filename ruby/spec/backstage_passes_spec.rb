@@ -1,5 +1,14 @@
 require './gilded_rose'
 
+describe "Unspecified Item" do
+  context 'to_s()' do
+    it 'returns string output' do
+      item = Item.new 'Backstage passes to a TAFKAL80ETC concert', 11, 11
+      expect(item.to_s).to eq 'Backstage passes to a TAFKAL80ETC concert, 11, 11'
+    end
+  end
+end
+
 describe 'Product #update_quality' do
 
   describe "Backstage passes" do

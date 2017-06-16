@@ -6,6 +6,34 @@ class GildedRose
 
   def update_quality()
     @items.each do |item|
+
+      def update_sulfuras item
+        p item.name
+      end
+
+      def update_backstage item
+        p item.name
+      end
+
+      def update_aged_brie item
+        p item.name
+      end
+
+      def update_unspecified item
+        p item.name
+      end
+
+      case item.name
+      when 'Sulfuras, Hand of Ragnaros'
+        update_sulfuras item
+      when 'Backstage passes to a TAFKAL80ETC concert'
+        update_backstage item
+      when 'Aged Brie'
+        update_aged_brie item
+      else
+        update_unspecified item
+      end
+
       if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
         if item.quality > 0
           if item.name != "Sulfuras, Hand of Ragnaros"
@@ -51,6 +79,7 @@ class GildedRose
       end
     end
   end
+
 end
 
 class Item
