@@ -1,6 +1,15 @@
 require './gilded_rose'
 
-describe 'Product #update_quality' do
+describe "Unspecified Item" do
+  context 'to_s()' do
+    it 'returns string output' do
+      item = Item.new 'Unspecified item', 12, 12
+      expect(item.to_s).to eq 'Unspecified item, 12, 12'
+    end
+  end
+end
+
+describe 'Product #update_quality' do  
 
   describe "Unspecified Item" do
 
@@ -47,6 +56,24 @@ describe 'Product #update_quality' do
         GildedRose.new(items).update_quality()
         expect(items[0].sell_in).to eq -2
         expect(items[0].quality).to eq 0
+      end
+    end
+
+    context 'sell-in is 5, quality is 5' do
+      it "sell_in decreases by 1, quality decreases by 1 if sell-in is positive" do
+        items = [Item.new("Unspecified item", 5, 5)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].sell_in).to eq 4
+        expect(items[0].quality).to eq 4
+      end
+    end
+
+    context 'sell-in is negative, quality is 3' do
+      it "quality never negative, quality decreases by 2 sell_in decreases by 1" do
+        items = [Item.new("Unspecified item", -1, 3)]
+        GildedRose.new(items).update_quality()
+        expect(items[0].sell_in).to eq -2
+        expect(items[0].quality).to eq 1
       end
     end
 
