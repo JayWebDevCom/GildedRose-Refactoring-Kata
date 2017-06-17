@@ -5,12 +5,12 @@ class GildedRose
   end
 
   # initialize method and update(item) inheritance provision
-  class MakeEasier
+  class FoodItem
     def update(item); end
   end
 
   # item type
-  class AgedBrie < MakeEasier
+  class AgedBrie < FoodItem
     def update(item)
       item.sell_in -= 1
       return if item.quality == 50
@@ -20,7 +20,7 @@ class GildedRose
   end
 
   # item type
-  class Backstage < MakeEasier
+  class Backstage < FoodItem
     def update(item)
       item.sell_in -= 1
       return if item.quality >= 50
@@ -32,7 +32,7 @@ class GildedRose
   end
 
   # item type for normal behaviour
-  class General < MakeEasier
+  class General < FoodItem
     def update(item)
       item.sell_in -= 1
       return if item.quality.zero?
@@ -42,7 +42,7 @@ class GildedRose
   end
 
   CLASSES = {
-    'Sulfuras, Hand of Ragnaros' => MakeEasier,
+    'Sulfuras, Hand of Ragnaros' => FoodItem,
     'Backstage passes to a TAFKAL80ETC concert' => Backstage,
     'Aged Brie' => AgedBrie
   }.freeze
