@@ -28,5 +28,15 @@ describe 'Conjured' do
         expect(items[0].quality).to eq 16
       end
     end
+
+    context 'sell-in is -1, quality is 0' do
+      it 'quality never negative, sell_in decreases by 1' do
+        items = [Item.new('Conjured', -1, 0)]
+        GildedRose.new(items).update_quality
+        expect(items[0].sell_in).to eq(-2)
+        expect(items[0].quality).to eq 0
+      end
+    end
+
   end
 end
