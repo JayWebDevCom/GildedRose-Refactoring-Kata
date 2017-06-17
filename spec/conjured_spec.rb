@@ -9,7 +9,7 @@ describe 'Conjured' do
   end
 end
 
-describe 'Aged Brie' do
+describe 'Conjured' do
   describe 'Product #update_quality' do
     context 'sell-in is 20, quality is 20' do
       it 'quality decreases by 2, sell_in decreases by 1' do
