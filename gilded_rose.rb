@@ -4,37 +4,21 @@ class GildedRose
     @items = items
   end
 
-  def sulfuras_update item
-    @item = Sulfuras.new(item.sell_in, item.quality)
-    @item.sulfuras_update item
-  end
-
-  def backstage_update item
-    @item = Backstage.new(item.sell_in, item.quality)
-    @item.backstage_update item
-  end
-
-  def aged_brie_update item
-    @item = AgedBrie.new(item.sell_in, item.quality)
-    @item.aged_brie_update item
-  end
-
-  def general_update item
-    @item = General.new(item.sell_in, item.quality)
-    @item.general_update item
-  end
-
   def update_quality()
     @items.each do |item|
     case item.name
     when 'Sulfuras, Hand of Ragnaros'
-      sulfuras_update item
+      @item = Sulfuras.new(item.sell_in, item.quality)
+      @item.sulfuras_update item
     when 'Backstage passes to a TAFKAL80ETC concert'
-      backstage_update item
+      @item = Backstage.new(item.sell_in, item.quality)
+      @item.backstage_update item
     when 'Aged Brie'
-      aged_brie_update item
+      @item = AgedBrie.new(item.sell_in, item.quality)
+      @item.aged_brie_update item
     else
-      general_update item
+      @item = General.new(item.sell_in, item.quality)
+      @item.general_update item
     end
     end
   end
