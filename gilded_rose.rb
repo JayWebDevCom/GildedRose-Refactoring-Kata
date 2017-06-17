@@ -55,7 +55,6 @@ class GildedRose
       @item.update item
     end
   end
-
 end
 
 # item type
