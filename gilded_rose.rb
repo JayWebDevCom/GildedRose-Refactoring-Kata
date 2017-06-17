@@ -9,15 +9,11 @@ class GildedRose
 
   def backstage_update item
     item.sell_in -= 1
-    if item.sell_in <= 5 && item.sell_in > 0
-      item.quality += 3
-    elsif item.sell_in <= 10 && item.sell_in > 0
-      item.quality += 2
-    elsif item.sell_in <= 0
-      item.quality = 0
-    else
-      item.quality += 1
-    end
+    return if item.quality >= 50
+    return item.quality = 0 if item.sell_in < 0
+    item.quality += 1
+    item.quality += 1 if item.sell_in < 10
+    item.quality += 1 if item.sell_in < 5
   end
 
   def update_aged_brie item
@@ -29,8 +25,8 @@ class GildedRose
 
   def unspecified_update item
     item.sell_in -= 1
-    item.quality -= 1 if item.sell_in >= 0 && item.quality >= 1
-    item.quality -= 1 if item.sell_in < 0 && item.quality > 0
+    return if item.quality == 0
+    item.quality -= 1
     item.quality -= 1 if item.sell_in < 0 && item.quality > 0
   end
 
