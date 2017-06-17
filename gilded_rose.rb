@@ -4,22 +4,9 @@ class GildedRose
     @items = items
   end
 
-  def klass_for(name)
-    case name
-    when 'Sulfuras, Hand of Ragnaros'
-      MakeEasier
-    when 'Backstage passes to a TAFKAL80ETC concert'
-      Backstage
-    when 'Aged Brie'
-      AgedBrie
-    else
-      General
-    end
-  end
-
   def update_quality
     @items.each do |item|
-      @item = klass_for(item.name).new
+      @item = (CLASSES[item.name] || DEFAULT_CLASS).new
       @item.update item
     end
   end
@@ -62,6 +49,14 @@ class GildedRose
       item.quality -= 1 if item.sell_in < 0 && item.quality > 0
     end
   end
+
+  CLASSES = {
+    'Sulfuras, Hand of Ragnaros' => MakeEasier,
+    'Backstage passes to a TAFKAL80ETC concert' => Backstage,
+    'Aged Brie' => AgedBrie
+  }.freeze
+
+  DEFAULT_CLASS = General
 end
 
 # item type
