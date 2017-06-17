@@ -6,37 +6,26 @@ class GildedRose
 
   def update_quality()
     @items.each do |item|
-    case item.name
-    when 'Sulfuras, Hand of Ragnaros'
-      @item = Sulfuras.new(item.sell_in, item.quality)
-      @item.sulfuras_update item
-    when 'Backstage passes to a TAFKAL80ETC concert'
-      @item = Backstage.new(item.sell_in, item.quality)
-      @item.backstage_update item
-    when 'Aged Brie'
-      @item = AgedBrie.new(item.sell_in, item.quality)
-      @item.aged_brie_update item
-    else
-      @item = General.new(item.sell_in, item.quality)
-      @item.general_update item
-    end
-    end
-  end
-
-  def klass_for(item.name)
-    case item.name
-    when 'Sulfuras, Hand of Ragnaros'
-      'Sulfuras'
-    when 'Backstage passes to a TAFKAL80ETC concert'
-      'Backstage'
-    when 'Aged Brie'
-      'AgedBrie'
-    else
-      'General'
+      @item = klass_for(item.name).new(item.sell_in, item.quality)
+      @item.update item
     end
   end
 
 end
+
+def klass_for(name)
+  case name
+  when 'Sulfuras, Hand of Ragnaros'
+    Sulfuras
+  when 'Backstage passes to a TAFKAL80ETC concert'
+    Backstage
+  when 'Aged Brie'
+    AgedBrie
+  else
+    General
+  end
+end
+
 
 class Sulfuras
   attr_accessor :sell_in, :quality
@@ -46,7 +35,7 @@ class Sulfuras
     @quality = quality
   end
 
-  def sulfuras_update item
+  def update item
   end
 
 end
@@ -59,7 +48,7 @@ class AgedBrie
     @quality = quality
   end
 
-  def aged_brie_update item
+  def update item
     item.sell_in -= 1
     return if item.quality == 50
     item.quality += 1
@@ -76,7 +65,7 @@ class Backstage
     @quality = quality
   end
 
-  def backstage_update item
+  def update item
     item.sell_in -= 1
     return if item.quality >= 50
     return item.quality = 0 if item.sell_in < 0
@@ -95,7 +84,7 @@ class General
     @quality = quality
   end
 
-  def general_update item
+  def update item
     item.sell_in -= 1
     return if item.quality == 0
     item.quality -= 1
