@@ -4,17 +4,8 @@ class GildedRose
     @items = items
   end
 
-  def update_quality
-    @items.each do |item|
-      @item = (CLASSES[item.name] || DEFAULT_CLASS).new
-      @item.update item
-    end
-  end
-
   # initialize method and update(item) inheritance provision
   class MakeEasier
-    def initialize; end
-
     def update(item); end
   end
 
@@ -40,7 +31,7 @@ class GildedRose
     end
   end
 
-  # item type
+  # item type for normal behaviour
   class General < MakeEasier
     def update(item)
       item.sell_in -= 1
@@ -57,6 +48,14 @@ class GildedRose
   }.freeze
 
   DEFAULT_CLASS = General
+
+  def update_quality
+    @items.each do |item|
+      @item = (CLASSES[item.name] || DEFAULT_CLASS).new
+      @item.update item
+    end
+  end
+
 end
 
 # item type
