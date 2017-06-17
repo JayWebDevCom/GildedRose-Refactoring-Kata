@@ -4,79 +4,52 @@ class GildedRose
     @items = items
   end
 
+  def update_sulfuras item
+  end
+
+  def update_backstage item
+    item.sell_in -= 1
+    if item.sell_in <= 5 && item.sell_in > 0
+      item.quality += 3
+    elsif item.sell_in <= 10 && item.sell_in > 0
+      item.quality += 2
+    elsif item.sell_in <= 0
+      item.quality = 0
+    else
+      item.quality += 1
+    end
+  end
+
+  def update_aged_brie item
+    item.sell_in -= 1
+    return if item.quality == 50
+    item.quality += 1
+    item.quality += 1 if item.sell_in < 0
+  end
+
+  def update_unspecified item
+    item.sell_in -= 1
+    item.quality -= 1 if item.sell_in >= 0 && item.quality >= 1
+    item.quality -= 1 if item.sell_in < 0 && item.quality > 0
+    item.quality -= 1 if item.sell_in < 0 && item.quality > 0
+  end
+
   def update_quality()
+
     @items.each do |item|
 
-      def update_sulfuras item
-        p item.name
-      end
+    case item.name
+    when 'Sulfuras, Hand of Ragnaros'
+      update_sulfuras item
+    when 'Backstage passes to a TAFKAL80ETC concert'
+      update_backstage item
+    when 'Aged Brie'
+      update_aged_brie item
+    when 'Unspecified item'
+      update_unspecified item
+    else
+    end
 
-      def update_backstage item
-        p item.name
-      end
-
-      def update_aged_brie item
-        p item.name
-      end
-
-      def update_unspecified item
-        p item.name
-      end
-
-      case item.name
-      when 'Sulfuras, Hand of Ragnaros'
-        update_sulfuras item
-      when 'Backstage passes to a TAFKAL80ETC concert'
-        update_backstage item
-      when 'Aged Brie'
-        update_aged_brie item
-      else
-        update_unspecified item
-      end
-
-      if item.name != "Aged Brie" and item.name != "Backstage passes to a TAFKAL80ETC concert"
-        if item.quality > 0
-          if item.name != "Sulfuras, Hand of Ragnaros"
-            item.quality = item.quality - 1
-          end
-        end
-      else
-        if item.quality < 50
-          item.quality = item.quality + 1
-          if item.name == "Backstage passes to a TAFKAL80ETC concert"
-            if item.sell_in < 11
-              if item.quality < 50
-                item.quality = item.quality + 1
-              end
-            end
-            if item.sell_in < 6
-              if item.quality < 50
-                item.quality = item.quality + 1
-              end
-            end
-          end
-        end
-      end
-      if item.name != "Sulfuras, Hand of Ragnaros"
-        item.sell_in = item.sell_in - 1
-      end
-      if item.sell_in < 0
-        if item.name != "Aged Brie"
-          if item.name != "Backstage passes to a TAFKAL80ETC concert"
-            if item.quality > 0
-              if item.name != "Sulfuras, Hand of Ragnaros"
-                item.quality = item.quality - 1
-              end
-            end
-          else
-            item.quality = item.quality - item.quality
-          end
-        else
-          if item.quality < 50
-            item.quality = item.quality + 1
-          end
-        end
-      end
     end
   end
 
