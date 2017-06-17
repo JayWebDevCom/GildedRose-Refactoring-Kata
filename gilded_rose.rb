@@ -4,10 +4,10 @@ class GildedRose
     @items = items
   end
 
-  def update_sulfuras item
+  def sulfuras_update item
   end
 
-  def update_backstage item
+  def backstage_update item
     item.sell_in -= 1
     if item.sell_in <= 5 && item.sell_in > 0
       item.quality += 3
@@ -27,7 +27,7 @@ class GildedRose
     item.quality += 1 if item.sell_in < 0
   end
 
-  def update_unspecified item
+  def unspecified_update item
     item.sell_in -= 1
     item.quality -= 1 if item.sell_in >= 0 && item.quality >= 1
     item.quality -= 1 if item.sell_in < 0 && item.quality > 0
@@ -40,14 +40,13 @@ class GildedRose
 
     case item.name
     when 'Sulfuras, Hand of Ragnaros'
-      update_sulfuras item
+      sulfuras_update item
     when 'Backstage passes to a TAFKAL80ETC concert'
-      update_backstage item
+      backstage_update item
     when 'Aged Brie'
       update_aged_brie item
-    when 'Unspecified item'
-      update_unspecified item
     else
+      unspecified_update item
     end
 
     end
