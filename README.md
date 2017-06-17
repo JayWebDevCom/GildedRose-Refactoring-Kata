@@ -27,4 +27,4 @@
 
 #### Resources
 * I drew inspiration from the [Rails Conference Video by Sandi Metz](https://www.youtube.com/watch?v=8bZh5LMaSmE&feature=youtu.be) although there were significant differences between her codebase and mine.
-* In this codebase, One gilded rose object iterates through an array of item objects which represent food item objects. In Sandi Metz’s video, I believe a Gilded Rose object was a food item object.
+* In my codebase, one gilded rose object iterates through an array of item objects each of which represents a food item object. In Sandi Metz’s video, I believe a Gilded Rose object was a food item object.
