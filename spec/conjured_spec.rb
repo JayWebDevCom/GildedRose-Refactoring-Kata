@@ -37,6 +37,5 @@ describe 'Conjured' do
         expect(items[0].quality).to eq 0
       end
     end
-
   end
 end
