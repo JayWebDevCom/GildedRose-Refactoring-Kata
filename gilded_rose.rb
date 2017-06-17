@@ -1,12 +1,12 @@
+# runs update method on it's item class
 class GildedRose
-
   def initialize(items)
     @items = items
   end
 
-  def update_quality()
+  def update_quality
     @items.each do |item|
-      @item = klass_for(item.name).new()
+      @item = klass_for(item.name).new
       @item.update item
     end
   end
@@ -24,19 +24,20 @@ class GildedRose
     end
   end
 
+  # initialize method and update(item) inheritance provision
   class MakeEasier
-    def initialize
-    end
-    def update item
-    end
+    def initialize; end
+
+    def update(item); end
   end
 
-
+  # item type
   class Sulfuras < MakeEasier
   end
 
+  # item type
   class AgedBrie < MakeEasier
-    def update item
+    def update(item)
       item.sell_in -= 1
       return if item.quality == 50
       item.quality += 1
@@ -44,28 +45,30 @@ class GildedRose
     end
   end
 
+  # item type
   class Backstage < MakeEasier
-    def update item
+    def update(item)
       item.sell_in -= 1
       return if item.quality >= 50
-      return item.quality = 0 if item.sell_in < 0
+      return item.quality.zero? if item.sell_in < 0
       item.quality += 1
       item.quality += 1 if item.sell_in < 10
       item.quality += 1 if item.sell_in < 5
     end
   end
 
+  # item type
   class General < MakeEasier
-    def update item
+    def update(item)
       item.sell_in -= 1
-      return if item.quality == 0
+      return if item.quality.zero?
       item.quality -= 1
       item.quality -= 1 if item.sell_in < 0 && item.quality > 0
     end
   end
-
 end
 
+# item type
 class Item
   attr_accessor :name, :sell_in, :quality
 
@@ -75,7 +78,7 @@ class Item
     @quality = quality
   end
 
-  def to_s()
+  def to_s
     "#{@name}, #{@sell_in}, #{@quality}"
   end
 end
