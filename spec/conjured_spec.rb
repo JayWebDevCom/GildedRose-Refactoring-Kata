@@ -12,11 +12,18 @@ end
 describe 'Aged Brie' do
   describe 'Product #update_quality' do
     context 'sell-in is 20, quality is 20' do
-      it 'increases quality by 1, sell_in decreases by 1' do
+      it 'quality decreases by 2, sell_in decreases by 1' do
         items = [Item.new('Conjured', 20, 20)]
         GildedRose.new(items).update_quality
         expect(items[0].sell_in).to eq 19
         expect(items[0].quality).to eq 18
+      end
+
+      it 'quality decreases by 4, sell_in decreases by 1' do
+        items = [Item.new('Conjured', -1, 20)]
+        GildedRose.new(items).update_quality
+        expect(items[0].sell_in).to eq(-2)
+        expect(items[0].quality).to eq 16
       end
     end
   end
