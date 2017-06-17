@@ -23,6 +23,19 @@ class GildedRose
     end
   end
 
+  def klass_for(item.name)
+    case item.name
+    when 'Sulfuras, Hand of Ragnaros'
+      'Sulfuras'
+    when 'Backstage passes to a TAFKAL80ETC concert'
+      'Backstage'
+    when 'Aged Brie'
+      'AgedBrie'
+    else
+      'General'
+    end
+  end
+
 end
 
 class Sulfuras
