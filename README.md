@@ -9,7 +9,7 @@
 #### Configuration
 * Clone this repo
 * $ bundle install
-* rspec
+* $ rspec
 * Feature tests on a per item basis can be seen in `/spec`
 
 #### Introducing new classes for new behaviour
