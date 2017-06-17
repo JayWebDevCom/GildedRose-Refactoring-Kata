@@ -15,12 +15,12 @@
 #### Introducing new classes for new behaviour
 * Each food item to be updated now has an instance of a corresponding class created, which makes a method available to update that food item as necessary.
 * 'item' is taken as a parameter to that `update` method.
-* I noticed significant similar behaviour and structure across food item classes that I had created which led me to implement classical inheritance to the food item classes inheritance.
+* I noticed significant similar behaviour and structure across food item classes that I had created which led me to implement classical inheritance to the food item classes.
 * I considered writing a module but I felt that as update behaviour was slightly different across food items, inheritance and therefore re-definition of the `update` method as necessary would be more suitable.
 
-#### Open-Closed && Introducing New Behaviour
-* Another issue to be addressed in this tech test is to introduce the -O- from SOLID programming design principles whereby new behaviour can be introduced with out modification to existing code.
-* I have worked on the Gilded Rose update method to the extent that new behaviour for conjured items can be added by adding conjured to a hash of classes, and making a small conjured class with an appropriate method which must be named `update`.
+#### Open-Closed & Introducing New Behaviour
+* I wanted to introduce the -O- from SOLID programming design principles whereby new behaviour can be introduced with out modification to existing code.
+* I have worked on the Gilded Rose update method to the extent that new behaviour for conjured items can be added by adding specific conjured keyword to a hash of classes, and making a small corresponding class with that keyword for it's name. This class must then have an appropriate update method which must be named `update`.
 
 #### Further Refactoring
 * Currently, the code for the Sulfuras food item `update` has actually been removed. Sulfuras have a coding requirement whereby its attributes are left untouched. This inert `update` method can be drawn from my parent food item class which has an empty update method.
