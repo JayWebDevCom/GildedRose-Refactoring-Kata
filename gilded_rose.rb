@@ -41,8 +41,17 @@ class GildedRose
     end
   end
 
+  class Conjured < FoodItem
+    def update(item)
+      item.sell_in -= 1
+      return if item.quality.zero?
+      item.quality -= 2
+    end
+  end
+
   CLASSES = {
     'Sulfuras, Hand of Ragnaros' => FoodItem,
+    'Conjured' => Conjured,
     'Backstage passes to a TAFKAL80ETC concert' => Backstage,
     'Aged Brie' => AgedBrie
   }.freeze
