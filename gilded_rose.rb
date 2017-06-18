@@ -21,8 +21,8 @@ class GildedRose
 
   def update_quality
     @items.each do |item|
-      @item = (CLASSES[item.name] || DEFAULT_CLASS).new
-      @item.update item
+      supporting_class = (CLASSES[item.name] || DEFAULT_CLASS).new
+      supporting_class.update item
     end
   end
 end
