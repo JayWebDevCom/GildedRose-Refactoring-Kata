@@ -20,7 +20,7 @@
 
 #### Open-Closed & Introducing New Behaviour
 * I wanted to introduce the -O- from SOLID programming design principles whereby new behaviour can be introduced with out modification to existing code.
-* I have worked on the Gilded Rose `update` method to the extent that new behaviour for conjured items can be added by adding specific conjured keyword to a hash of classes, and making a small corresponding class with that keyword for it's name. This class must then have an appropriate `update` method which must be named `update`.
+* I have worked on the Gilded Rose `update` method to the extent that new behaviour for conjured items can be added by appending a new corresponding key-value pair to the `classes` hash. The name of the item as the key, and the name of the class encapsulating the `update` behaviour as the value.
 
 #### Further Refactoring
 * Currently, the code for the Sulfuras food item `update` has actually been removed. Sulfuras have a coding requirement whereby its attributes are left untouched. This inert `update` method can be drawn from my parent food item class which has an empty `update` method.
