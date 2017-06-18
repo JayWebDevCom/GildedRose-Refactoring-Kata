@@ -1,21 +1,21 @@
-require './lib/food_item'
+require './lib/base_item'
 require './lib/backstage'
 require './lib/aged_brie'
 require './lib/conjured'
 require './lib/general'
 
-# runs update method on it's item class
+# runs update method on item class
 class GildedRose
-  def initialize(items)
-    @items = items
-  end
-
   CLASSES = {
-    'Sulfuras, Hand of Ragnaros' => FoodItem,
+    'Sulfuras, Hand of Ragnaros' => BaseItem,
     'Conjured' => Conjured,
     'Backstage passes to a TAFKAL80ETC concert' => Backstage,
     'Aged Brie' => AgedBrie
   }.freeze
+
+  def initialize(items)
+    @items = items
+  end
 
   DEFAULT_CLASS = General
 
@@ -27,7 +27,7 @@ class GildedRose
   end
 end
 
-# item type
+# products of gilded rose
 class Item
   attr_accessor :name, :sell_in, :quality
 

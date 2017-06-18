@@ -1,5 +1,5 @@
 # item type for normal behaviour
-class General < FoodItem
+class General < BaseItem
   def update(item)
     item.sell_in -= SELL_IN_CHANGE
     return if item.quality.zero?

@@ -1,5 +1,5 @@
 # item type
-class Conjured < FoodItem
+class Conjured < BaseItem
   def update(item)
     item.sell_in -= SELL_IN_CHANGE
     return if item.quality.zero?

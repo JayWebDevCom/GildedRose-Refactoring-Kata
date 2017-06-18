@@ -1,5 +1,5 @@
 # item type
-class Backstage < FoodItem
+class Backstage < BaseItem
   def update(item)
     item.sell_in -= SELL_IN_CHANGE
     return if item.quality >= 50
