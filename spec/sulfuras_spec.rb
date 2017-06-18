@@ -9,8 +9,8 @@ describe 'Sulfuras, Hand of Ragnaros' do
   end
 end
 
-describe 'Product #update_quality' do
-  describe 'Sulfuras, Hand of Ragnaros' do
+describe 'Sulfuras, Hand of Ragnaros' do
+  describe 'Product #update_quality' do
     context 'legacy item' do
       it 'sell-in never changes, quality never changes' do
         items = [Item.new('Sulfuras, Hand of Ragnaros', 20, 20)]
