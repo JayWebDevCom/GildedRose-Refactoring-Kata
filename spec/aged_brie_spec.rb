@@ -10,7 +10,7 @@ describe 'Aged Brie' do
 end
 
 describe 'Aged Brie' do
-  describe 'Product #update_quality' do
+  describe 'GildedRose update()' do
     context 'sell-in is 20, quality is 20' do
       it 'increases quality by 1, sell_in decreases by 1' do
         items = [Item.new('Aged Brie', 20, 20)]

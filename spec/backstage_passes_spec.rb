@@ -11,7 +11,7 @@ describe 'Backstage passes' do
 end
 
 describe 'Backstage passes' do
-  describe 'Product #update_quality' do
+  describe 'GildedRose update()' do
     context 'sell-in is 20, quality is 20' do
       it 'quality increases by 1, sell_in decreases by 1' do
         items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 20, 20)]

@@ -10,7 +10,7 @@ describe 'Unspecified Item' do
 end
 
 describe 'Unspecified Item' do
-  describe 'Product #update_quality' do
+  describe 'GildedRose update()' do
     context 'sell-in is 20, quality is 20' do
       it 'quality decreases by 1, sell_in decreases by 1' do
         items = [Item.new('General item', 20, 20)]

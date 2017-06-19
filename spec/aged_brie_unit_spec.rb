@@ -1,7 +1,7 @@
 require './gilded_rose'
 require './lib/aged_brie'
 
-describe 'Aged Brie' do
+describe 'Aged Brie Using Its Supporting Class' do
   context 'sell-in is 20, quality is 20' do
     it 'increases quality by 1, sell_in decreases by 1' do
       aged_brie = Item.new('Aged Brie', 20, 20)

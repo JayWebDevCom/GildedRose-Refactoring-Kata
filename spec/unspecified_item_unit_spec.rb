@@ -1,8 +1,7 @@
 require './gilded_rose'
 require './lib/general'
 
-
-describe 'Unspecified Item' do
+describe 'Unspecified Item Using Its Supporting Class' do
   context 'sell-in is 20, quality is 20' do
     it 'quality decreases by 1, sell_in decreases by 1' do
       class_for_any_item = General.new

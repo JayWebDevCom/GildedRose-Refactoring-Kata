@@ -10,7 +10,7 @@ describe 'Conjured' do
 end
 
 describe 'Conjured' do
-  describe 'Product #update_quality' do
+  describe 'GildedRose update()' do
     context 'sell-in is 20, quality is 20' do
       it 'quality decreases by 2, sell_in decreases by 1' do
         items = [Item.new('Conjured', 20, 20)]

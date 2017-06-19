@@ -1,7 +1,7 @@
 require './gilded_rose'
 require './lib/conjured'
 
-describe 'Conjured' do
+describe 'Conjured Using Its Supporting Class' do
   context 'sell-in is 20, quality is 20' do
     it 'quality decreases by 2, sell_in decreases by 1' do
       conjured_class = Conjured.new

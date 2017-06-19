@@ -1,7 +1,7 @@
 require './gilded_rose'
 require './lib/base_item'
 
-describe 'Sulfuras, Hand of Ragnaros' do
+describe 'Sulfuras, Hand of Ragnaros Using Its Supporting Class' do
   context 'legacy item' do
     it 'sell-in never changes, quality never changes' do
       sulfuras = Item.new('Sulfuras, Hand of Ragnaros', 20, 20)
@@ -21,4 +21,4 @@ describe 'Sulfuras, Hand of Ragnaros' do
       expect(sulfuras.sell_in).to eq 0
     end
   end
-  end
+end
