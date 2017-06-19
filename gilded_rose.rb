@@ -17,11 +17,9 @@ class GildedRose
     @items = items
   end
 
-  DEFAULT_CLASS = General
-
   def update_quality
     @items.each do |item|
-      supporting_class = (CLASSES[item.name] || DEFAULT_CLASS).new
+      supporting_class = (CLASSES[item.name] || General).new
       supporting_class.update item
     end
   end
