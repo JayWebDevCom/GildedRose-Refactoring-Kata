@@ -11,6 +11,7 @@ describe 'Aged Brie Using Its Supporting Class' do
       expect(aged_brie.quality).to eq 21
     end
   end
+
   context 'sell-in is -1, quality is 20' do
     it 'sell_in has passed - quality increases by 2, sell_in decreases by 1' do
       aged_brie = Item.new('Aged Brie', -1, 20)
