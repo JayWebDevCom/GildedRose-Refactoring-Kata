@@ -14,37 +14,33 @@ describe 'Backstage passes' do
   describe 'GildedRose update()' do
     context 'sell-in is 20, quality is 20' do
       it 'quality increases by 1, sell_in decreases by 1' do
-        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 20, 20)]
-        GildedRose.new(items).update_quality
-        expect(items[0].sell_in).to eq 19
-        expect(items[0].quality).to eq 21
+        tickets = gilded_rose_update('Backstage passes to a TAFKAL80ETC concert', 20, 20)
+        expect(tickets[:sell_in]).to eq 19
+        expect(tickets[:quality]).to eq 21
       end
     end
 
     context 'sell-in is 10, quality is 20' do
       it 'quality increases by 2, sell_in decreases by 1' do
-        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 10, 20)]
-        GildedRose.new(items).update_quality
-        expect(items[0].sell_in).to eq 9
-        expect(items[0].quality).to eq 22
+        tickets = gilded_rose_update('Backstage passes to a TAFKAL80ETC concert', 10, 20)
+        expect(tickets[:sell_in]).to eq 9
+        expect(tickets[:quality]).to eq 22
       end
     end
 
     context 'sell-in is 5, quality is 20' do
       it 'increases quality by 3, sell_in decreases by 1' do
-        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 5, 20)]
-        GildedRose.new(items).update_quality
-        expect(items[0].sell_in).to eq 4
-        expect(items[0].quality).to eq 23
+        tickets = gilded_rose_update('Backstage passes to a TAFKAL80ETC concert', 5, 20)
+        expect(tickets[:sell_in]).to eq 4
+        expect(tickets[:quality]).to eq 23
       end
     end
 
     context 'quality is 0, sell-in is 0' do
       it 'quality is never less than 0, sell-in is -1' do
-        items = [Item.new('Backstage passes to a TAFKAL80ETC concert', 0, 0)]
-        GildedRose.new(items).update_quality
-        expect(items[0].sell_in).to eq(-1)
-        expect(items[0].quality).to eq 0
+        tickets = gilded_rose_update('Backstage passes to a TAFKAL80ETC concert', 0, 0)
+        expect(tickets[:sell_in]).to eq(-1)
+        expect(tickets[:quality]).to eq 0
       end
     end
   end
